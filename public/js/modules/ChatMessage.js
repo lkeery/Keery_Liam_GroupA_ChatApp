@@ -2,5 +2,18 @@
 // will be made public when you import this file into another via the import statement
 
 export default {
+    props: ['msg'],
+    template: `
+            <p class="new-message" :class="{ 'my-message' : matchedID }">
+                <span>{{ msg.message.name }} says: </span>
+                {{ msg.message.content }}
+            </p>
+    `,
 
+    data: function() {
+        return { 
+            message: "Template message",
+            matchedID: this.$parent.socketID == this.msg.id 
+        };
+    }
 }
