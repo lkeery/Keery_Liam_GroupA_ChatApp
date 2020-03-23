@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Chatr | Main Room</title>
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<script src="https://unpkg.com/vue"></script>
+		<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"
+			integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ"
+			crossorigin="anonymous"></script>
+	</head>
+
+	<body>
+		<main id="app">
+		<nav class="navbar bg-light flex-md-nowrap p-0" id="dash-nav">
+			<a class="navbar-brand text-center col-sm-3 col-md-2 mr-0" href="#"><img class="nav-logo"
+				src="images/logo.png">chatr</a>
+			<ul class="navbar-nav px-3">
+			  <li class="nav-item">
+				<a class="btn btn-primary mx-auto" style="margin: 0;" href="/">Leave Room&nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a>
+			  </li>
+			</ul>
+		  </nav>
+	  
+		  <div class="container-fluid">
+			<div class="row">
+			  <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+				
+					<section class="form-container">
+						
+						<label for="nickname">Your Nickname (Optional)</label>
+						<input v-model="nickname" type="text" id="nickname" class="nickname" placeholder="Enter Nickname">
+			
+						
+					</section>
+				
+			  </nav>
+	  
+			  
+				<!-- <section class="messages"> -->
+					<ul id="messages" class="col col-lg-10">
+						<newmessage v-for="message in messages" :msg="message"></newmessage>
+					</ul>
+				<!-- </section> -->
+				</div>
+	
+				<div class="fixed-bottom" id="message-bar">
+					<form class="d-flex justify-content-end msg">
+						<div class="input-group col col-lg-10">
+							<input v-model="message" type="text" autocomplete="off" class="form-control message-bar" placeholder="Your Message" required>
+							<div class="input-group-append">
+							  <button @click.prevent="dispatchMessage" class="btn btn-secondary" type="submit">Send Message&nbsp;&nbsp;<i class="fas fa-paper-plane"></i></button>
+							</div>
+						  </div>
+					</form>
+				</div>
+
+			  </main>
+			</div>
+		  </div>
+
+
+  </script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script type="module" src="js/main_vm.js"></script>
+	</body>
+
+</html>

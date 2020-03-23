@@ -4,10 +4,10 @@
 export default {
     props: ['msg'],
     template: `
-            <p class="new-message" :class="{ 'my-message' : matchedID }">
+            <div class="new-message" :class="{ 'my-message' : matchedID }">
                 <span>{{ msg.message.name }} says: </span>
                 {{ msg.message.content }}
-            </p>
+            </div>
     `,
 
     data: function() {

@@ -12,6 +12,10 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/app', (req, res) => {
+    res.sendFile(__dirname + '/views/app.html');
+});
+
 const server = app.listen(port, () => {
     console.log(`app is running on port ${port}`);
 });
