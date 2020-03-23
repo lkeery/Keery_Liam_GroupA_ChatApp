@@ -1,35 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<meta charset="UTF-8">
-	<title>Socket IO Chat with Node!</title>
-	<link rel="stylesheet" href="css/main.css">
-	<script src="https://unpkg.com/vue"></script>
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<title>Welcome to chatr</title>
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans|Rubik&display=swap"
+			rel="stylesheet">
+		<script src="https://unpkg.com/vue"></script>
+		<script
+			src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+		<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"
+			integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ"
+			crossorigin="anonymous"></script>
+	</head>
 
-<body>
-	<main id="app">
-		<section class="form-container">
-			<label for="nickname">Your Nickname (optional)</label>
-			<input v-model="nickname" type="text" id="nickname" class="nickname" placeholder="What is your nickname?">
+	<body>
+		<main id="app" class="container">
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<a class="navbar-brand" href="#"><img class="nav-logo"
+							src="images/logo.png">chatr</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+						<ul class="navbar-nav">
+							<li class="nav-item active">
+								<a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">START CHATTING</a>
+							</li>
 
-			<form>
-				<label for="message">Something to say?</label>
-				<textarea v-model="message" class="message" type="text" autocomplete="off" id="textarea"></textarea>
-				<input @click.prevent="dispatchMessage" type="submit">
-			</form>
-		</section>
+						</ul>
+					</div>
 
-		<section class="messages">
-			<ul id="messages">
-				<!-- render a new message component for every message -->
-				<newmessage v-for="message in messages" :msg="message"></newmessage>
-			</ul>
-		</section>
-	</main>
-	<script src="/socket.io/socket.io.js"></script>
-	<script type="module" src="js/main_vm.js"></script>
-</body>
+				</div>
+			</nav>
+
+			<div class="row">
+				<div class="col mx-auto align-content-center my-auto">
+					<h1>Welcome to <img class="h1-logo" src="images/logo.png"><span
+							style="color: #29A1D4;">chatr</span></h1>
+
+					<p>Enter the chatr room to begin chatting.</p>
+					<section class="enter mx-auto text-center">
+
+						<!-- <form class="text-center">
+
+							<div class="cursor">
+								<input v-model="nickname" type="text" id="nickname" class="nickname
+									rq-form-element" placeholder="Your Nickname">
+								<i></i>
+							</div>
+
+							<button type="submit" class="btn btn-primary mb-2">Chat Now</button>
+						</form> -->
+						<a href="/app" class="btn btn-primary mb-2">Enter Room&nbsp;&nbsp;<i class="fas fa-paper-plane"></i></a>
+
+					</section>
+				</div>
+				<div class="col .d-sm-none .d-md-block">
+					<lottie-player
+						src="https://assets10.lottiefiles.com/temp/lf20_JJiHnB.json"
+						background="transparent" speed="1" style="display: block; width: 500px;
+						height: 500px;"
+						autoplay class="mx-auto">
+					</lottie-player>
+				</div>
+
+			</div>
+
+			<div class="row">
+				<footer class="col-lg-12">
+					<nav class="navbar navbar-light bg-light fixed-bottom">
+						<span class="navbar-text">
+							Copyright &copy; 2020 chatr.
+						</span>
+						<ul class="nav justify-content-end">
+							<li class="nav-item">
+								<a class="nav-link active" href="#">Terms of Service</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">Privacy Policy</a>
+							</li>
+						</ul>
+					</nav>
+
+				</footer>
+			</div>
+
+		</main>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script type="module" src="js/main_vm.js"></script>
+	</body>
 
 </html>

@@ -25,13 +25,14 @@ const vm = new Vue({
         messages: []
     },
 
+
     methods: {
         dispatchMessage() {
             console.log('Handle emit message');
 
             socket.emit('chat_message', { 
                 content: this.message,
-                name: this.nickname || "anonymous"
+                name: this.nickname || "Anonymous chatr"
             })
 
             this.message = "";
@@ -45,6 +46,7 @@ const vm = new Vue({
     components: {
         newmessage: ChatMessage
     }
+
 }).$mount("#app");
 
 socket.addEventListener('connected', setUserId);
