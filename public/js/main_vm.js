@@ -3,14 +3,14 @@ import ChatMessage from "./modules/ChatMessage.js";
 
 const socket = io();
 
-function setUserId({sID}) {
-    //debugger;
+function setUserId({sID, connections}) {
     console.log(sID);
     vm.socketID = sID;
+    vm.connections = connections;
 }
 
 function showDisconnectMessage() {
-    console.log('A user disconnected');
+    console.log('A user disconnected')
 }
 
 function appendMessage(message) {
@@ -22,13 +22,13 @@ const vm = new Vue({
         socketID: "",
         message: "",
         nickname: "",
-        messages: []
+        messages: [],
+        connections: null,
     },
-
 
     methods: {
         dispatchMessage() {
-            console.log('Handle emit message');
+            //console.log('Handle emit message');
 
             socket.emit('chat_message', { 
                 content: this.message,

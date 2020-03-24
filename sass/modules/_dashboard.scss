@@ -38,6 +38,23 @@ body {
     background: white;
   }
 
+  .nickname-form {
+      justify-content: center;
+      margin-bottom: 36px;
+  }
+
+  .heading {
+      font-size: 1rem;
+      margin-left: 12px;
+      margin-top: 16px;
+  }
+
+  hr {
+      width: 180px;
+      margin: 0 auto;
+      justify-content: center;
+  }
+
  .msg {
      z-index: 100;
      margin-top: 10px;

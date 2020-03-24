@@ -28,14 +28,15 @@
 		  <div class="container-fluid">
 			<div class="row">
 			  <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-				
-					<section class="form-container">
-						
-						<label for="nickname">Your Nickname (Optional)</label>
-						<input v-model="nickname" type="text" id="nickname" class="nickname" placeholder="Enter Nickname">
-			
-						
+				  <h4 class="heading">Chat Options</h4>
+				  <hr>
+					<section class="form-container">		
+						<input v-model="nickname" type="text" class="form-control nickname-form" id="nickname" placeholder="Nickname (Optional)">
 					</section>
+
+					<h4 class="heading">Chatr Status</h4>
+					<hr>
+					<p><i class="fas fa-plug"></i> {{connections}} users connected.</p>
 				
 			  </nav>
 	  
