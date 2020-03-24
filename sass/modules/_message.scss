@@ -1,16 +1,20 @@
 .new-message { 
-    span { font-size: 0.8rem; display: block; margin-bottom: 2px; }
+    span { font-family: 'Rubik', sans-serif; font-size: 0.8rem; display: block; margin-bottom: 2px; }
     padding: 8px 12px;
     background-color: grey; 
     border-radius: 8px;
     margin-bottom: 1rem;
-
+    color: white;
     float: left !important;
     clear: both;
+    margin-top: 16px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .my-message {
     float: right !important;
     background-color: #86bf9d;
     color: white;
+    margin-top: 16px;
+    font-family: 'Open Sans', sans-serif;
 }
