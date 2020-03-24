@@ -11,6 +11,7 @@
 		<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"
 			integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ"
 			crossorigin="anonymous"></script>
+			<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 	</head>
 
 	<body>
@@ -36,22 +37,27 @@
 
 					<h4 class="heading">Chatr Status</h4>
 					<hr>
-					<p><i class="fas fa-plug"></i> {{connections}} users connected.</p>
-				
+					<p><i class="fas fa-plug"></i> {{connections}} users connected.</p>	
+
+					<div class="mx-auto user-typing text-center">
+							<lottie-player
+							src="https://assets7.lottiefiles.com/datafiles/a98jFygUlT2f8S8/data.json"  background="transparent"  speed="1"  style="width: 50px; height: 50px;"  loop  autoplay class="mx-auto animation" >
+							</lottie-player><span class="typing-msg"></span>
+					</div>
 			  </nav>
 	  
 			  
 				<!-- <section class="messages"> -->
-					<ul id="messages" class="col col-lg-10">
+					<div id="messages" class="col col-lg-10">
 						<newmessage v-for="message in messages" :msg="message"></newmessage>
-					</ul>
+					</div>
 				<!-- </section> -->
 				</div>
 	
 				<div class="fixed-bottom" id="message-bar">
 					<form class="d-flex justify-content-end msg">
 						<div class="input-group col col-lg-10">
-							<input v-model="message" type="text" autocomplete="off" class="form-control message-bar" placeholder="Your Message" required>
+							<input max-length="50" @keydown="captureKeyStroke" @blur="releaseKeyStrokes" v-model="message" type="text" autocomplete="off" class="form-control message-bar" placeholder="Your Message (50 Characters or less)" required>
 							<div class="input-group-append">
 							  <button @click.prevent="dispatchMessage" class="btn btn-secondary" type="submit">Send Message&nbsp;&nbsp;<i class="fas fa-paper-plane"></i></button>
 							</div>

@@ -36,6 +36,11 @@ io.on('connection', function(socket) {
         io.emit('new_message', { id: socket.id, message: msg });
     })
 
+    socket.on('typing', (data)=>{
+        console.log('A user is typing')
+        io.emit('notifyTyping', { user: data.name, msg: `${data.name} is typing...`} )
+    })
+
     socket.on('disconnect', function() {
         usersConnected--;
     })
