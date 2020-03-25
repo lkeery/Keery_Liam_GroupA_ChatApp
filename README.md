@@ -7,7 +7,7 @@ A chat app built with Vue.js, Express.js & Socket.
 Clone this repo using git:
 
 ```
-git clone ...
+git clone https://github.com/lkeery/Keery_Liam_GroupA_ChatApp.git
 ```
 
 Install the dependencies:
